@@ -1,29 +1,34 @@
 /**
  * Represents an instance of FortniteApi with all it's endpoints.
  */
-const fortniteApi = {
+const fortniteApi = new FortniteApi();
+
+function FortniteApi() {
   /**
    * Provides access to the /cosmetics/ endpoint
    * @property {CosmeticsEndpoint}
    */
-  cosmetics: new CosmeticsEndpoint(),
+  this.cosmetics = new CosmeticsEndpoint();
+
   /**
    * Provides access to the /shop/ endpoint.
    * @property {ShopEndpoint}
    */
-  shop: new ShopEndpoint(),
+  this.shop = new ShopEndpoint();
+
   /**
    * Provides access to the /news/ endpoint.
    * @property {NewsEndpoint}
    */
-  news: new NewsEndpoint(),
+  this.news = new NewsEndpoint();
+
   /**
    * Executes a get request.
    * @param {string} uri
    * @param {Array} query
    * @returns {Promise<Response>}
    */
-  getRequest: function(uri, query = null) {
+  this.getRequest = function (uri, query = null) {
     var params = "";
 
     if (query != null) {
@@ -49,21 +54,23 @@ const fortniteApi = {
       redirect: "follow",
       referrer: "no-referrer"
     });
-  },
+  };
+
   /**
    * Returns the API's base URI.
    * @returns {string}
    */
-  getBaseUri: function() {
+  this.getBaseUri = function () {
     const uri = "https://fortnite-api.com";
 
     return uri;
-  },
+  };
+
   /**
    * Returns an array of all supported languages (country codes).
    * @returns {Array}
    */
-  getSupportedLanguages: function() {
+  this.getSupportedLanguages = function () {
     const languages = [
       "ar",
       "de",
@@ -83,13 +90,14 @@ const fortniteApi = {
     ];
 
     return languages;
-  },
+  };
+
   /**
    * Returns the data member of an object if it exists
    * @param {Object} obj
    * @returns {Object}
    */
-  getDataFromObject: function(obj) {
+  this.getDataFromObject = function (obj) {
     if (Object.keys(obj).length !== 2) {
       return obj;
     }
@@ -102,16 +110,17 @@ const fortniteApi = {
     } else {
       return obj;
     }
-  },
+  };
+
   /**
    * Determines whether a response has a success status code.
    * @param {Response} response
    * @returns {bool}
    */
-  isResponseSuccess: function(response) {
+  this.isResponseSuccess = function (response) {
     return response.status >= 200 && response.status < 400;
-  }
-};
+  };
+}
 
 /**
  * Provides access to the /cosmetics/ endpoint
@@ -123,7 +132,7 @@ function CosmeticsEndpoint() {
    * @param {string} language
    * @returns {Promise<Response>}
    */
-  this.get = async function(cosmeticId, language = null) {
+  this.get = async function (cosmeticId, language = null) {
     var path = "/cosmetics/br/" + cosmeticId;
 
     if (language !== null) {
@@ -139,7 +148,7 @@ function CosmeticsEndpoint() {
    * @param {string} language
    * @returns {Promise<Response>}
    */
-  this.getAll = async function(language = null) {
+  this.getAll = async function (language = null) {
     const path = "/cosmetics/br";
 
     if (language !== null) {
@@ -156,7 +165,7 @@ function CosmeticsEndpoint() {
    * @param {string} language
    * @returns {Promise<Response>}
    */
-  this.search = async function(query, language = null) {
+  this.search = async function (query, language = null) {
     const path = "/cosmetics/br/search";
 
     if (language !== null) {
@@ -171,7 +180,7 @@ function CosmeticsEndpoint() {
    * @param {string} language
    * @returns {Promise<Response>}
    */
-  this.searchAll = async function(query, language = null) {
+  this.searchAll = async function (query, language = null) {
     const path = "/cosmetics/br/search/all";
 
     if (language !== null) {
@@ -186,7 +195,7 @@ function CosmeticsEndpoint() {
    * @param {string} language
    * @returns {Promise<Response>}
    */
-  this.searchIds = async function(ids, language = null) {
+  this.searchIds = async function (ids, language = null) {
     const path = "/cosmetics/br/search/ids";
 
     var query = {
@@ -210,7 +219,7 @@ function NewsEndpoint() {
    * @param {string} language
    * @returns {Promise<Response>}
    */
-  this.get = async function(language = null) {
+  this.get = async function (language = null) {
     const path = "/news";
 
     if (language !== null) {
@@ -226,7 +235,7 @@ function NewsEndpoint() {
    * @param {string} language
    * @returns {Promise<Response>}
    */
-  this.getBr = async function(language = null) {
+  this.getBr = async function (language = null) {
     const path = "/news/br";
 
     if (language !== null) {
@@ -242,7 +251,7 @@ function NewsEndpoint() {
    * @param {string} language
    * @returns {Promise<Response>}
    */
-  this.getStw = async function(language = null) {
+  this.getStw = async function (language = null) {
     const path = "/news/stw";
 
     if (language !== null) {
@@ -258,7 +267,7 @@ function NewsEndpoint() {
    * @param {string} language
    * @returns {Promise<Response>}
    */
-  this.getCreative = async function(language = null) {
+  this.getCreative = async function (language = null) {
     const path = "/news/creative";
 
     if (language !== null) {
@@ -280,7 +289,7 @@ function ShopEndpoint() {
    * @param {string} language
    * @returns {Promise<Response>}
    */
-  this.get = async function(language = null) {
+  this.get = async function (language = null) {
     const path = "/shop/br";
 
     if (language !== null) {
