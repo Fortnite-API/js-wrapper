@@ -7,6 +7,45 @@ const content = document.getElementById("content");
 // searchCosmetic();
 // searchAllCosmetic();
 // searchCosmeticIds();
+// getCreatorCode();
+// searchCreatorCode();
+// searchAllCreatorCodes();
+
+function searchAllCreatorCodes() {
+  fortniteApi.creatorCode
+    .searchAll("getonmylvl")
+    .then(response => response.json())
+    .then(obj => {
+      obj = fortniteApi.getDataFromObject(obj);
+      content.innerHTML = JSON.stringify(obj, null, 2);
+
+      hljs.highlightBlock(content);
+    });
+}
+
+function searchCreatorCode() {
+  fortniteApi.creatorCode
+    .search("getonmylvl")
+    .then(response => response.json())
+    .then(obj => {
+      obj = fortniteApi.getDataFromObject(obj);
+      content.innerHTML = JSON.stringify(obj, null, 2);
+
+      hljs.highlightBlock(content);
+    });
+}
+
+function getCreatorCode() {
+  fortniteApi.creatorCode
+    .get("getonmylvl")
+    .then(response => response.json())
+    .then(obj => {
+      obj = fortniteApi.getDataFromObject(obj);
+      content.innerHTML = JSON.stringify(obj, null, 2);
+
+      hljs.highlightBlock(content);
+    });
+}
 
 function searchCosmeticIds() {
   fortniteApi.cosmetics
