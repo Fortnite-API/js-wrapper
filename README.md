@@ -19,7 +19,7 @@ Please use a polyfill for the fetch api (like [this](https://github.com/github/f
 You can use this by either downloading one of the [releases](https://github.com/Fortnite-API/js-wrapper/releases) or by using the file provided by [jsDelivr](https://www.jsdelivr.com).
 
 ```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Fortnite-API/js-wrapper@0.1.1/dist/fortnite-api.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Fortnite-API/js-wrapper@0.2.0/dist/fortnite-api.min.js"></script>
 ```
 
 ## Documentation
