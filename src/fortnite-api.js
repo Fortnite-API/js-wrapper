@@ -23,6 +23,12 @@ function FortniteApi() {
   this.news = new NewsEndpoint();
 
   /**
+   * Provides access to the /creatorcode endpoint.
+   * @property {CreatorCodeEndpoint}
+   */
+  this.creatorCode = new CreatorCodeEndpoint();
+
+  /**
    * Executes a get request.
    * @param {string} uri
    * @param {Array} query
@@ -299,5 +305,49 @@ function ShopEndpoint() {
     } else {
       return fortniteApi.getRequest(path);
     }
+  };
+}
+
+/**
+ * Provides access to the /creatorcode endpoint.
+ */
+function CreatorCodeEndpoint() {
+  /**
+   * 
+   * @param {string} slug
+   * @returns {Promise<Response>}
+   */
+  this.get = async function (slug) {
+    const path = "/creatorcode";
+
+    return fortniteApi.getRequest(path, {
+      slug: slug
+    });
+  };
+
+  /**
+   * 
+   * @param {string} slug
+   * @returns {Promise<Response>}
+   */
+  this.search = async function (slug) {
+    const path = "/creatorcode/search";
+
+    return fortniteApi.getRequest(path, {
+      slug: slug
+    });
+  };
+
+  /**
+   * 
+   * @param {string} slug
+   * @returns {Promise<Response>}
+   */
+  this.searchAll = async function (slug) {
+    const path = "/creatorcode/search/all";
+
+    return fortniteApi.getRequest(path, {
+      slug: slug
+    });
   };
 }
