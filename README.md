@@ -2,7 +2,7 @@
 
 # JavaScript wrapper for [Fortnite-API.com](https://fortnite-api.com)
 
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/Fortnite-API/js-wrapper?logo=github)](https://github.com/Fortnite-API/js-wrapper/releases) [![GitHub issues](https://img.shields.io/github/issues/Fortnite-API/js-wrapper)](https://github.com/Fortnite-API/js-wrapper/issues?logo=github) [![MIT License](https://img.shields.io/github/license/Fortnite-API/js-wrapper)](https://github.com/Fortnite-API/js-wrapper/blob/master/LICENSE)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/Fortnite-API/js-wrapper?logo=github)](https://github.com/Fortnite-API/js-wrapper/releases) [![GitHub issues](https://img.shields.io/github/issues/Fortnite-API/js-wrapper?logo=github)](https://github.com/Fortnite-API/js-wrapper/issues) [![MIT License](https://img.shields.io/github/license/Fortnite-API/js-wrapper)](https://github.com/Fortnite-API/js-wrapper/blob/master/LICENSE)
 
 </div>
 
